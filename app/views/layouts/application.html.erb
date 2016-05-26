@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Prooof</title>
+  <title>prooof</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <% if yield(:name) != "home" %>
+    <%= render "layouts/header" %>
+  <% end %>
+  <div id="everything-outer" class="<%= yield(:name) %>">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
